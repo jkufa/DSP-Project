@@ -22,6 +22,7 @@ xlabel('Normalized frequency');
 n = 11;
 initial_freq = 500 / (fs/2);
 [b,a] = butter(n, initial_freq, 'low');
+h = fvtool(b,a);
 
 %% Filter the signal
 f_out = filter(b, a, x);

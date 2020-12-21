@@ -1,7 +1,7 @@
 %% Read in the file
 clearvars;
 close all;
-[x,fs] = audioread('tyler.ogg');
+[x,fs] = audioread('tyler_original.ogg');
 
 %% Plot both audio channels
 N = size(x,1); % Determine total number of samples in audio file
@@ -14,7 +14,7 @@ y2 = fftshift(y);
 figure;
 plot(w,abs(y2));
 title('Power Spectrum');
-subtitle('tyler.ogg');
+subtitle('tyler_orginal.ogg');
 ylabel('Power');
 xlabel('Normalized frequency');
 
@@ -32,4 +32,4 @@ p = audioplayer(f_out, fs);
 p.play;
 
 %% write to file
-audiowrite('tyler_no_synth.ogg',f_out,fs)
+audiowrite('tyler_butterworth_lowpass.wav',f_out,fs)
